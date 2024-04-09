@@ -19,19 +19,19 @@ export default function Home() {
         <div className="flex flex-col gap-2 mt-4">
           <div className="flex items-center">
             <Image src="/linkedin-icon.png" width={20} height={20} alt="LinkedIn logo"/>
-            <a href="https://www.linkedin.com/in/bishnu-poudel" className="underline ml-2">
+            <a href="https://www.linkedin.com/in/bishnu-poudel" target="_blank" rel="noopener noreferrer" className="underline ml-2">
               LinkedIn
             </a>
           </div>
           <div className="flex items-center">
             <Image src="/github-icon.jpg" width={20} height={20} alt="GitHub logo"/>
-            <a href="https://github.com/vsnupoudel" className="underline ml-2">
+            <a href="https://github.com/vsnupoudel" target="_blank" rel="noopener noreferrer" className="underline ml-2">
               GitHub
             </a>
           </div>
           <div className="flex items-center">
             <Image src="/dockerhub-icon.png" width={20} height={20} alt="DockerHub logo"/>
-            <a href="https://hub.docker.com/u/bishnupoudel" className="underline ml-2">
+            <a href="https://hub.docker.com/u/bishnupoudel" target="_blank" rel="noopener noreferrer" className="underline ml-2">
               DockerHub
             </a>
           </div>
