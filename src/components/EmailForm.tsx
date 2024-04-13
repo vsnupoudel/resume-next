@@ -26,29 +26,29 @@ const EmailForm: React.FC = () => {
     }
   };
 
-  
-
   return (
-    <div className="bg-blue-100 p-6 rounded-lg">
-      <h2 className="text-xl font-semibold mb-4">Contact via Email</h2>
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl">
+      <h2 className="text-gray-900 dark:text-white text-xl font-semibold mb-4">
+        Contact via Email
+      </h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <label className="flex flex-col">
-          <span>Email:</span>
+          <span className="text-gray-600 dark:text-gray-300">Email:</span>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="mt-2 p-2 border border-gray-300 rounded"
+            className="mt-2 p-2 border border-gray-300 rounded text-black"
           />
         </label>
         <label className="flex flex-col">
-          <span>Message:</span>
+          <span className="text-gray-600 dark:text-gray-300">Message:</span>
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
-            className="mt-2 p-2 border border border-gray-300 rounded h-36"
+            className="mt-2 p-2 border border-gray-300 rounded h-36 text-black"
           />
         </label>
         <button
@@ -58,7 +58,9 @@ const EmailForm: React.FC = () => {
           Send
         </button>
       </form>
-      {status && <p className="mt-2">{status}</p>}
+      {status && (
+        <p className="text-gray-600 dark:text-gray-300">{status}</p>
+      )}
     </div>
   );
 };

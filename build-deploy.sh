@@ -7,7 +7,10 @@ check_error() {
         exit 1
     fi
 }
-
+# install packages
+echo "Installing node packages"
+npm install
+check_error "Failed to install npm packages"
 # Rebuild the Next.js application
 echo "Building the Next.js application..."
 npm run build
