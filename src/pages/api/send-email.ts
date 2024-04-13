@@ -1,8 +1,6 @@
 // pages/api/send-email.ts
 import { NextApiRequest, NextApiResponse } from 'next';
-import sgMail from '@sendgrid/mail';
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY); // Set your SendGrid API key
+import nodemailer from 'nodemailer';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -17,15 +15,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
+  // Create a transporter using Gmail SMTP
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    secure: true, // true for 465, false for other ports
+    auth: {
+      user: 'may05nineteen90@gmail.com', // Your Gmail address
+      pass: process.env.GMAIL_APP_PWD, // App-specific password (use App Passwords for security)
+    },
+  });
+
   const mailOptions = {
-    from: 'sender@example.com', // Replace with your sender email address
-    to: 'recipient@example.com', // Replace with the recipient's email address
-    subject: 'New message from contact form',
+    from: email, // Replace with your sender email address
+    replyTo: email,
+    to: 'replytobishnu@gmail.com', // Replace with the recipient's email address
+    subject: 'You have a New message from contact form',
     text: message,
   };
 
   try {
-    await sgMail.send(mailOptions);
+    await transporter.sendMail(mailOptions);
     res.status(200).json({ success: 'Email sent' });
   } catch (error) {
     console.error('Error sending email:', error);

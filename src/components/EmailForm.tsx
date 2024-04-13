@@ -26,6 +26,8 @@ const EmailForm: React.FC = () => {
     }
   };
 
+  
+
   return (
     <div className="bg-blue-100 p-6 rounded-lg">
       <h2 className="text-xl font-semibold mb-4">Contact via Email</h2>
