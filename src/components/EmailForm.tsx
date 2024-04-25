@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 const EmailForm: React.FC = () => {
   const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
 
@@ -14,7 +15,7 @@ const EmailForm: React.FC = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, message }),
+      body: JSON.stringify({ email, subject, message }),
     });
 
     if (response.ok) {
@@ -42,6 +43,20 @@ const EmailForm: React.FC = () => {
             className="mt-2 p-2 border border-gray-300 rounded text-black"
           />
         </label>
+        
+        { /* Set subject */}
+
+        <label className="flex flex-col">
+          <span className="text-gray-600 dark:text-gray-300">Subject:</span>
+          <input
+            type="text"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            required
+            className="mt-2 p-2 border border-gray-300 rounded text-black"
+          />
+        </label>
+
         <label className="flex flex-col">
           <span className="text-gray-600 dark:text-gray-300">Message:</span>
           <textarea

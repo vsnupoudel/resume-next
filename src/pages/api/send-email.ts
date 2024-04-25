@@ -8,7 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
-  const { email, message } = req.body;
+  const { email, subject, message } = req.body;
 
   if (!email || !message) {
     res.status(400).json({ error: 'Email and message are required' });
@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     from: email, // Replace with your sender email address
     replyTo: email,
     to: 'replytobishnu@gmail.com', // Replace with the recipient's email address
-    subject: 'You have a New message from contact form',
+    subject: subject,
     text: message,
   };
 
