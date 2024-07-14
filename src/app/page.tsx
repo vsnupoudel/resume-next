@@ -8,12 +8,12 @@ export default function Home() {
       <div className="w-80 mx-auto flex-grow">
         {/* Displaying PDF */}
         <object
-          data="/Resume-BishnuPoudel-20240409.pdf"
+          data="/Resume_BishnuPoudel_20240714.pdf"
           type="application/pdf"
           className="w-full h-full">
           <p>
             Your browser does not support viewing PDF files. 
-            <a href="/Resume-BishnuPoudel-20240409.pdf" 
+            <a href="/Resume_BishnuPoudel_20240714.pdf" 
             className="underline text-blue-600 font-bold" >Download the PDF file</a> instead.
           </p>
         </object>
