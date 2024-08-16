@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Function to check for errors and exit if any
 check_error() {
     if [ $? -ne 0 ]; then
@@ -11,9 +12,9 @@ check_error() {
 
 # Restart the pm2 process for the resume app
 echo "Restarting the pm2 process for the resume app..."
-pm2 stop all
-pm2 kill
-pm2 start npm --name "resume-app" -- start 2>&1 | tee pm2_error.log
+/home/ubuntu/.nvm/versions/node/v21.7.2/bin/pm2 stop all
+/home/ubuntu/.nvm/versions/node/v21.7.2/bin/pm2 kill
+/home/ubuntu/.nvm/versions/node/v21.7.2/bin/pm2 start npm --name "resume-app" -- start 2>&1 | tee pm2_error.log
 check_error "Failed to restart the pm2 process for the resume app" "$(cat pm2_error.log)"
 
 # Restart Nginx to apply changes
