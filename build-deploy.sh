@@ -16,7 +16,7 @@ check_error "Failed to install npm packages" "$(cat npm_install_error.log)"
 
 # Rebuild the Next.js application
 echo "Building the Next.js application..."
-npm run build 2>&1 | tee npm_build_error.log
+npm run build && npm run start 2>&1 | tee npm_build_error.log
 check_error "Failed to build the Next.js application" "$(cat npm_build_error.log)"
 
 
