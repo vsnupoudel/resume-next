@@ -11,7 +11,7 @@ check_error() {
 
 # install packages
 echo "Installing node packages"
-npm install 2>&1 | tee npm_install_error.log
+npm install && npm run dev 2>&1 | tee npm_install_error.log
 check_error "Failed to install npm packages" "$(cat npm_install_error.log)"
 
 # Rebuild the Next.js application
