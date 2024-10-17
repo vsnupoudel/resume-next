@@ -1,6 +1,6 @@
 import Image from "next/image";
 import EmailForm from '../components/EmailForm';
-const resumeFileName = "/Resume_BishnuPoudel_20240927-Long.pdf";
+const resumeFileName = "../../public/Resume_BishnuPoudel_20240927-Long.pdf";
 
 export default function Home() {
   return (
