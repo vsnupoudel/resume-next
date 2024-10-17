@@ -1,6 +1,6 @@
 import Image from "next/image";
 import EmailForm from '../components/EmailForm';
-
+const resumeFileName = "/Resume_BishnuPoudel_20240714.pdf";
 
 export default function Home() {
   return (
@@ -8,12 +8,12 @@ export default function Home() {
       <div className="w-80 mx-auto flex-grow">
         {/* Displaying PDF */}
         <object
-          data="/Resume_BishnuPoudel_20240714.pdf"
+          data={resumeFileName}
           type="application/pdf"
           className="w-full h-full">
           <p>
             Your browser does not support viewing PDF files. 
-            <a href="/Resume_BishnuPoudel_20240714.pdf" 
+            <a href={resumeFileName}
             className="underline text-blue-600 font-bold" >Download the PDF file</a> instead.
           </p>
         </object>
