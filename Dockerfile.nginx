@@ -1,0 +1,9 @@
+# Dockerfile for nginx
+# Use the latest Nginx image as the base
+FROM nginx:latest
+
+# Copy custom Nginx config file
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80 for HTTP
+EXPOSE 80
