@@ -25,7 +25,7 @@ services:
       - ./data/certbot/www:/var/www/certbot
     depends_on:
       app:
-        condition: service_started
+        condition: service_healthy
     networks:
       - app-network
 
@@ -37,7 +37,7 @@ services:
       - ./data/certbot/www:/var/www/certbot
     depends_on:
       nginx:
-        condition: service_started
+        condition: service_healthy
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot --nginx --non-interactive --email replytobishnu@gmail.com --agree-tos --no-eff-email -d bishnupoudel.site && nginx -s reload; sleep 12h & wait $${!}; done;'"
     networks:
       - app-network
