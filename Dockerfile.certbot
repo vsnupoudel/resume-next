@@ -1,4 +1,4 @@
-FROM certbot/certbot
+FROM certbot/certbot:nightly
 
 # Install NGINX and the Certbot NGINX plugin
 RUN apk update && \
