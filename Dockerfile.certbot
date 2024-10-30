@@ -4,3 +4,6 @@ FROM certbot/certbot
 RUN apk update && \
     apk add --no-cache nginx certbot-nginx
 
+RUN curl -s https://get.acme.sh | sh -s acme.sh
+
+
