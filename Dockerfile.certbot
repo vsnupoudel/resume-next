@@ -2,8 +2,10 @@ FROM certbot/certbot
 
 # Install NGINX and the Certbot NGINX plugin
 RUN apk update && \
-    apk add --no-cache nginx certbot-nginx
+    apk add --no-cache nginx 
 
 RUN curl -s https://get.acme.sh | sh -s acme.sh
+
+RUN pip install certbot-nginx
 
 
