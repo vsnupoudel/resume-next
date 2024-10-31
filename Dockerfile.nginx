@@ -1,9 +1,18 @@
-# Dockerfile for nginx
-# Use the latest Nginx image as the base
 FROM nginx:latest
 
-# Copy custom Nginx config file
-COPY nginx.conf /etc/nginx/nginx.conf
+# Install Snap and Certbot
+RUN apt-get update && apt-get install -y snapd && \
+    snap install --classic certbot && \
+    snap install --classic certbot-nginx
 
-# Expose port 80 for HTTP
-EXPOSE 80
+# Copy Nginx configuration
+COPY ./nginx.conf /etc/nginx/nginx.conf
+
+# Create necessary directories
+RUN mkdir -p /var/www/certbot /etc/letsencryptd
+
+# Expose ports
+EXPOSE 80 443
+
+# Start Nginx and run Certbot to obtain the certificate
+CMD /bin/sh -c "nginx && certbot --nginx --non-interactive --email replytobishnu@gmail.com --agree-tos --no-eff-email -d bishnupoudel.site && nginx -s reload"
