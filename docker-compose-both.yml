@@ -19,9 +19,9 @@ services:
   nginx:
     image: nginx:latest
     healthcheck: 
-      test: ["CMD", "curl", "-f", "http://localhost:80"] 
+      test: ["CMD", "curl", "https://www.google.com"] 
       interval: 5s 
-      timeout: 4s 
+      timeout: 10s 
       retries: 3
     build:
       context: .
