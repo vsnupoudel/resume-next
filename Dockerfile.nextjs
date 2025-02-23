@@ -4,6 +4,7 @@ FROM node:23
 
 # Set the working directory
 WORKDIR /resume-app
+RUN MKDIR /resume-app/logs/
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
@@ -24,6 +25,9 @@ RUN npm run build
 EXPOSE 3000
 
 # Start the app using PM2
-CMD ["pm2-runtime", "start", "npm", "--name", "resume-app", "--", "start"]
+# CMD ["pm2-runtime", "start", "npm", "--name", "resume-app", "--", "start"]
+
+# Start the app using PM2 with log file paths
+CMD ["pm2-runtime", "start", "npm", "--name", "resume-app", "--", "start", "--output", "/resume-app/logs/output.log", "--error", "/resume-app/logs/error.log"]
 
 

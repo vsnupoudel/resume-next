@@ -44,7 +44,8 @@ export default function Home() {
         {/* EmailForm component */}
 
         <div className="pt-10 mt-4">
-          <EmailForm />
+          chatbot here
+          {/* <EmailForm /> */}
         </div>
 
 
