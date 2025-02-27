@@ -47,7 +47,7 @@ const Resume = () => {
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-blue-600 mb-2">SUMMARY</h2>
             <p className="text-gray-700">
-              I have a strong background and experience in SQL, ML/AI, Python-Dev, Cloud Infra (GCP), and Data Operations. I have completed one year of Master's Degree Credits in Data Science.
+              I have a strong background and experience in SQL, ML/AI, Python-Dev, Cloud Infra (GCP), and Data Operations. I have completed one year of Master`s Degree Credits in Data Science.
             </p>
             <p className="text-gray-700 mt-2">
               For finance, retail, pharma, and social-media clients, I have provided optimal solutions to data quality issues, machine learning applications, and data operations automation. Accurate communication and minimal consumption of time/resources for delivery of solutions are my priorities.
