@@ -1,12 +1,43 @@
+"use client";
 import Image from "next/image";
 import EmailForm from '../components/EmailForm';
 const resumeFileName = "Resume-BishnuPoudel-20240927-Long.pdf";
+import Resume from '../components/resumeHtml';
+import React, { useState } from 'react';
 
 export default function Home() {
+  const [pdfLoaded, setPdfLoaded] = useState(false);
+  const handlePdfError = () => {
+    setPdfLoaded(false);
+  };
+
+
   return (
     <div className="h-screen flex flex-row">
-      <div className="w-80 mx-auto flex-grow">
-        {/* Displaying PDF */}
+
+   <div className="w-80 mx-auto flex-grow">    
+        <object
+          data={resumeFileName}
+          type="application/pdf"
+          className="w-full h-full"
+          onLoad={() => setPdfLoaded(true)}
+          onError={handlePdfError}
+        >
+        </object>
+        {  pdfLoaded ? (  
+          <p>
+            Your browser does not support viewing PDF files. 
+            <a href={resumeFileName} className="underline text-blue-600 font-bold">
+              Download the PDF file
+            </a> instead.
+          </p>) : ( <Resume /> )
+     }
+    
+    </div>
+      
+
+      {/* <div className="w-80 mx-auto flex-grow">
+       
         <object
           data={resumeFileName}
           type="application/pdf"
@@ -17,7 +48,8 @@ export default function Home() {
             className="underline text-blue-600 font-bold" >Download the PDF file</a> instead.
           </p>
         </object>
-      </div >
+      </div > */}
+
 
       <div className="pt-5 w-80 mx-auto">
         <div className="flex flex-col gap-2 mt-4">

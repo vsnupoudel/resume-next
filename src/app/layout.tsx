@@ -9,11 +9,8 @@ export const metadata: Metadata = {
   description: "Created using next.js react skeleton",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>)
+ {
   return (
     <html lang="en">
 
