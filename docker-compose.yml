@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: resume-app:v01
+    image: bishnupoudel/resume-app:mobile-view
     build:
       context: .
       dockerfile: Dockerfile.nextjs
